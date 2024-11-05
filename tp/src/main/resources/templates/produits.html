@@ -30,6 +30,15 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
  <td th:text="${produit.libelle}"></td>
  <td th:text="${produit.prix}"></td>
  <td th:text="${produit.qteStock}"></td>
+ <td>
+    <!-- Bouton pour afficher les détails -->
+    
+    <!-- Bouton pour modifier le produit -->
+    <a th:href="@{/produits/edit/{id}(id=${produit.id})}" class="btn btn-warning btn-sm">Modifier</a>
+    
+    <!-- Bouton pour supprimer le produit -->
+    
+</td>
  </tr>
  </tbody>
  </table>
