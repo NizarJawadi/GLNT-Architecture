@@ -23,32 +23,18 @@ public class ProduitController {
  model.addAttribute("produits", produitService.findAll());
  return "produits"; // Nom de la vue
  }
+
+
+
  @PostMapping("/add")
  public String addProduit(Produit produit) {
  produitService.save(produit);
  return "redirect:/produits"; // Rediriger vers la liste des produits
  }
-}
-=======
 
-    @Autowired
-    private ProduitService produitService;
-    @Autowired
-    private ProduitService produitService;
-    @Autowired
-    private ProduitService produitService;
 
-    @GetMapping
-    public String getAllProduits(Model model) {
-        model.addAttribute("produits", produitService.findAll());
-        return "produits"; // Nom de la vue
-    }
 
-    @PostMapping("/add")
-    public String addProduit(Produit produit) {
-        produitService.save(produit);
-        return "redirect:/produits"; // Rediriger vers la liste des produits
-    }
+  
 
     @GetMapping("/details/{id}")
     public String productDetails(@PathVariable Long id, Model model) {
@@ -95,4 +81,4 @@ public String searchProduits(String libelle, Double prix, Model model) {
 
 
 }
->>>>>>> Stashed changes
+
