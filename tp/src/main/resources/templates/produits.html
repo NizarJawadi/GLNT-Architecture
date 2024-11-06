@@ -12,7 +12,12 @@
 <<<<<<< Updated upstream
     <div class="container mx-auto p-6">
         <h1 class="text-3xl font-bold text-gray-800 mb-6">Liste des Produits</h1>
-        
+        <form action="/produits/search" method="get" class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+            <input type="text" name="libelle" placeholder="Libellé" class="p-2 border border-gray-300 rounded">
+            <input type="number" name="prix" placeholder="Prix maximal" class="p-2 border border-gray-300 rounded">
+            <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-red-600">Rechercher</button>
+        </form>
+         <hr>        
         <!-- Formulaire d'ajout de produit -->
         <form th:action="@{/produits/add}" method="post" class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
             <input type="text" name="libelle" placeholder="Libellé" required class="p-2 border border-gray-300 rounded" />

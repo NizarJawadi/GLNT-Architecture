@@ -33,6 +33,10 @@ public class ProduitController {
 
     @Autowired
     private ProduitService produitService;
+    @Autowired
+    private ProduitService produitService;
+    @Autowired
+    private ProduitService produitService;
 
     @GetMapping
     public String getAllProduits(Model model) {
