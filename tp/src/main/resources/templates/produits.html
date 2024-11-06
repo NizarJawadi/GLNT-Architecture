@@ -38,15 +38,19 @@
                     <td class="p-3" th:text="${produit.libelle}"></td>
                     <td class="p-3" th:text="${produit.prix}"></td>
                     <td class="p-3" th:text="${produit.qteStock}"></td>
- <td>
-    <!-- Bouton pour afficher les détails -->
+ 
+                    <td>
+                        <!-- Bouton pour afficher les détails -->
+                        <a th:href="@{/produits/details/{id}(id=${produit.id})}" class="btn btn-info">Détails</a>
+                    </td>
+                    <td>
+        
+                    <!-- Bouton pour modifier le produit -->
+                    <a th:href="@{/produits/edit/{id}(id=${produit.id})}" class="btn btn-warning btn-sm">Modifier</a>
+                    
+                    <!-- Bouton pour supprimer le produit -->
     
-    <!-- Bouton pour modifier le produit -->
-    <a th:href="@{/produits/edit/{id}(id=${produit.id})}" class="btn btn-warning btn-sm">Modifier</a>
-    
-    <!-- Bouton pour supprimer le produit -->
-    
-</td>
+                    </td>
             </tr>
         </tbody>
     </table>
