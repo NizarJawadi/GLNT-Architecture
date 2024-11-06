@@ -31,3 +31,12 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Ignorer les fichiers temporaires et de sauvegarde pour ProduitController.java
+tp/src/main/java/com/architecture/tp/controller/.ProduitController*.swp
+tp/src/main/java/com/architecture/tp/controller/ProduitController*_BASE_*.java
+tp/src/main/java/com/architecture/tp/controller/ProduitController*_LOCAL_*.java
+tp/src/main/java/com/architecture/tp/controller/ProduitController*_REMOTE_*.java
+tp/src/main/java/com/architecture/tp/controller/ProduitController*_BACKUP_*.java
+tp/src/main/java/com/architecture/tp/controller/ProduitController.java.orig
+
