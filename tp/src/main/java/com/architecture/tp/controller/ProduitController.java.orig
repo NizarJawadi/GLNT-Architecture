@@ -15,7 +15,9 @@ import com.architecture.tp.service.ProduitService;
 @Controller
 @RequestMapping("/produits")
 public class ProduitController {
-
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
  @Autowired
  private ProduitService produitService;
  @GetMapping
@@ -30,6 +32,7 @@ public class ProduitController {
  }
 }
 =======
+>>>>>>> dev_branch_4
 
     @Autowired
     private ProduitService produitService;
@@ -82,6 +85,9 @@ public class ProduitController {
         return "redirect:/produits"; // Redirige vers la liste des produits après modification
     }
 
+<<<<<<< HEAD
+}
+=======
 
     @GetMapping("/search")
 public String searchProduits(String libelle, Double prix, Model model) {
@@ -92,3 +98,4 @@ public String searchProduits(String libelle, Double prix, Model model) {
 
 }
 >>>>>>> Stashed changes
+>>>>>>> dev_branch_4
