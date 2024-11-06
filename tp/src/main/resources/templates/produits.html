@@ -5,6 +5,10 @@
     <title>Liste des Produits</title>
     <!-- Lien vers Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+ <meta charset="UTF-8">
+ <title>Liste des Produits</title>
+ <link rel="stylesheet"
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body class="bg-gray-100">
     <div class="container mx-auto p-6">
@@ -34,6 +38,15 @@
                     <td class="p-3" th:text="${produit.libelle}"></td>
                     <td class="p-3" th:text="${produit.prix}"></td>
                     <td class="p-3" th:text="${produit.qteStock}"></td>
+ <td>
+    <!-- Bouton pour afficher les détails -->
+    
+    <!-- Bouton pour modifier le produit -->
+    <a th:href="@{/produits/edit/{id}(id=${produit.id})}" class="btn btn-warning btn-sm">Modifier</a>
+    
+    <!-- Bouton pour supprimer le produit -->
+    
+</td>
                 </tr>
             </tbody>
         </table>
