@@ -11,10 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.architecture.tp.model.Produit;
 import com.architecture.tp.service.ProduitService;
 
+
 @Controller
 @RequestMapping("/produits")
 public class ProduitController {
-
+<<<<<<< HEAD
     @Autowired
     private ProduitService produitService;
 
@@ -30,19 +31,9 @@ public class ProduitController {
         return "redirect:/produits"; // Rediriger vers la liste des produits
     }
 
-    @GetMapping("/details/{id}")
-    public String productDetails(@PathVariable Long id, Model model) {
-        Produit produit = produitService.findById(id);
-        if (produit != null) {
-            model.addAttribute("produit", produit);
-            return "details";
-        } else {
-            return "redirect:/produits"; // Redirige si l'ID est invalide
-        }
-    }
-
+    // Affiche le formulaire de modification pour un produit spÃ©cifique
     @GetMapping("/edit/{id}")
-    public String editProduit(@PathVariable Long id, Model model) {
+    public String showEditForm(@PathVariable Long id, Model model) {
         Produit produit = produitService.findById(id);
         if (produit != null) {
             model.addAttribute("produit", produit);
@@ -62,7 +53,28 @@ public class ProduitController {
             produit.setQteStock(produitDetails.getQteStock());
             produitService.save(produit); // Enregistre les modifications
         }
-        return "redirect:/produits"; // Redirige vers la liste des produits après modification
+        return "redirect:/produits"; // Redirige vers la liste des produits aprÃ¨s modification
     }
 
+=======
+ @Autowired
+ private ProduitService produitService;
+ @GetMapping
+ public String getAllProduits(Model model) {
+ model.addAttribute("produits", produitService.findAll());
+ return "produits"; // Nom de la vue
+ }
+ @PostMapping("/add")
+ public String addProduit(Produit produit) {
+ produitService.save(produit);
+ return "redirect:/produits"; // Rediriger vers la liste des produits
+ }
+
+    @GetMapping("/details/{id}")
+    public String productDetails(@PathVariable Long id, Model model) {
+        Produit produit = produitService.findById(id);
+        model.addAttribute("produit", produit);
+        return "details";
+    }
+>>>>>>> origin/dev_branch_2
 }
