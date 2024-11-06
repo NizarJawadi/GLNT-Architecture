@@ -36,6 +36,13 @@ public class ProduitController {
         model.addAttribute("produit", produit);
         return "details";
     }
+
+    // Affiche le formulaire de modification pour un produit spécifique
+    @GetMapping("/edit/{id}")
+    public String showEditForm(@PathVariable Long id, Model model) {
+        Produit produit = produitService.findById(id);
+        if (produit != null) {
+            model.addAttribute("produit", produit);
             return "edit"; // Renvoie vers le template edit.html
         } else {
             return "redirect:/produits"; // Redirige vers la liste des produits si l'ID est invalide
