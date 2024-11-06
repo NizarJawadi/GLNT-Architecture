@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -14,7 +15,7 @@ import com.architecture.tp.service.ProduitService;
 @Controller
 @RequestMapping("/produits")
 public class ProduitController {
-<<<<<<< Updated upstream
+<<<<<<< HEAD
  @Autowired
  private ProduitService produitService;
  @GetMapping
@@ -22,14 +23,16 @@ public class ProduitController {
  model.addAttribute("produits", produitService.findAll());
  return "produits"; // Nom de la vue
  }
+ 
  @PostMapping("/add")
  public String addProduit(Produit produit) {
  produitService.save(produit);
  return "redirect:/produits"; // Rediriger vers la liste des produits
  }
-}
-=======
 
+
+
+=======
     @Autowired
     private ProduitService produitService;
 
@@ -43,17 +46,6 @@ public class ProduitController {
     public String addProduit(Produit produit) {
         produitService.save(produit);
         return "redirect:/produits"; // Rediriger vers la liste des produits
-    }
-
-    @GetMapping("/details/{id}")
-    public String productDetails(@PathVariable Long id, Model model) {
-        Produit produit = produitService.findById(id);
-        if (produit != null) {
-            model.addAttribute("produit", produit);
-            return "details";
-        } else {
-            return "redirect:/produits"; // Redirige si l'ID est invalide
-        }
     }
 
     // Affiche le formulaire de modification pour un produit spécifique
@@ -80,14 +72,6 @@ public class ProduitController {
         }
         return "redirect:/produits"; // Redirige vers la liste des produits après modification
     }
-
-
-    @GetMapping("/search")
-public String searchProduits(String libelle, Double prix, Model model) {
-    model.addAttribute("produits", produitService.searchByLibelleAndPrix(libelle, prix));
-    return "produits"; // Renvoie vers la vue produits.html avec les résultats de la recherche
-}
-
+>>>>>>> 5821ab772f6613ca3dcfaf700d5613af4d638d12
 
 }
->>>>>>> Stashed changes
