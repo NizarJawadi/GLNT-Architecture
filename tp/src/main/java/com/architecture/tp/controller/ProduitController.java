@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.architecture.tp.model.Produit;
 import com.architecture.tp.service.ProduitService;
 
+
 @Controller
 @RequestMapping("/produits")
 public class ProduitController {
@@ -41,8 +42,9 @@ public class ProduitController {
         }
     }
 
+    // Affiche le formulaire de modification pour un produit spécifique
     @GetMapping("/edit/{id}")
-    public String editProduit(@PathVariable Long id, Model model) {
+    public String showEditForm(@PathVariable Long id, Model model) {
         Produit produit = produitService.findById(id);
         if (produit != null) {
             model.addAttribute("produit", produit);
