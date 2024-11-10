@@ -48,6 +48,9 @@
                     <a th:href="@{/produits/edit/{id}(id=${produit.id})}" class="btn btn-warning btn-sm">Modifier</a>
                     
                     <!-- Bouton pour supprimer le produit -->
+                    <form th:action="@{/produits/delete/{id}(id=${produit.id})}" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce produit ?');">Supprimer</button>
+                    </form>
     
                     </td>
             </tr>
