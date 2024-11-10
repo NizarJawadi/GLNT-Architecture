@@ -26,6 +26,10 @@ public class ProduitService {
     public void delete(Long id) {
     produitRepository.deleteById(id);
     }
+
+    public List<Produit> searchByLibelleAndPrix(String libelle, Double prix) {
+        return produitRepository.findByLibelleContainingAndPrixLessThanEqual(libelle, prix);
+    }
    }
 
  

@@ -18,26 +18,36 @@ import com.architecture.tp.service.ProduitService;
 @Controller
 @RequestMapping("/produits")
 public class ProduitController {
-    @Autowired
-    private ProduitService produitService;
 
-    @GetMapping
-    public String getAllProduits(Model model) {
-        model.addAttribute("produits", produitService.findAll());
-        return "produits"; // Nom de la vue
-    }
+ @Autowired
+ private ProduitService produitService;
+ @GetMapping
+ public String getAllProduits(Model model) {
+ model.addAttribute("produits", produitService.findAll());
+ return "produits"; // Nom de la vue
+ }
 
-    @PostMapping("/add")
-    public String addProduit(Produit produit) {
-        produitService.save(produit);
-        return "redirect:/produits"; // Rediriger vers la liste des produits
-    }
+
+
+ @PostMapping("/add")
+ public String addProduit(Produit produit) {
+ produitService.save(produit);
+ return "redirect:/produits"; // Rediriger vers la liste des produits
+ }
+
+
+
+  
 
     @GetMapping("/details/{id}")
     public String productDetails(@PathVariable Long id, Model model) {
         Produit produit = produitService.findById(id);
-        model.addAttribute("produit", produit);
-        return "details";
+        if (produit != null) {
+            model.addAttribute("produit", produit);
+            return "details";
+        } else {
+            return "redirect:/produits"; // Redirige si l'ID est invalide
+        }
     }
 
     // Affiche le formulaire de modification pour un produit spécifique
@@ -62,13 +72,18 @@ public class ProduitController {
             produit.setQteStock(produitDetails.getQteStock());
             produitService.save(produit); // Enregistre les modifications
         }
-        return "redirect:/produits"; // Redirige vers la liste des produits aprÃ¨s modification
+        return "redirect:/produits"; // Redirige vers la liste des produits après modification
     }
 
-    @PostMapping("/delete/{id}")
-    public String deleteProduct(@PathVariable Long id) {
-        produitService.delete(id);
-        return "redirect:/produits";
-    }
 
+@PostMapping("/delete/{id}")
+public String deleteProduct(@PathVariable Long id) {
+    produitService.delete(id);
+    return "redirect:/produits";
+}
+@GetMapping("/search")
+public String searchProduits(String libelle, Double prix, Model model) {
+    model.addAttribute("produits", produitService.searchByLibelleAndPrix(libelle, prix));
+    return "produits"; // Renvoie vers la vue produits.html avec les résultats de la recherche
+}
 }
