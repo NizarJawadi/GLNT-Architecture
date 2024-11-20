@@ -1,0 +1,66 @@
+<div class="container mt-4">
+    <button class="btn btn-primary" (click)="redirectToListeProduit()">Voir la liste des produits</button>
+
+    <div class="card">
+      <div class="card-header bg-primary text-white">
+        <h5>Ajouter un Produit</h5>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="produitForm" (ngSubmit)="onSubmit()">
+          <!-- Champs du produit -->
+          <div class="mb-3">
+            <label for="libelle" class="form-label">Libellé</label>
+            <input
+              type="text"
+              id="libelle"
+              class="form-control"
+              formControlName="libelle"
+              placeholder="Entrez le libellé"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="famille" class="form-label">Famille</label>
+            <input
+              type="text"
+              id="famille"
+              class="form-control"
+              formControlName="famille"
+              placeholder="Entrez la famille"
+            />
+          </div>
+  
+          <!-- Matières -->
+          <div formArrayName="matieres" class="mt-4">
+            <div *ngFor="let matiere of matieres.controls; let i = index" [formGroupName]="i" class="row align-items-center mb-2">
+              <div class="col-md-5">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Nom de la matière"
+                  formControlName="nom"
+                />
+              </div>
+              <div class="col-md-4">
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Pourcentage"
+                  formControlName="pourcentage"
+                />
+              </div>
+              <div class="col-md-3 text-end">
+                <button class="btn btn-danger" type="button" (click)="removeMatiere(i)">
+                  Supprimer
+                </button>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Boutons -->
+          <button class="btn btn-primary mt-3" type="button" (click)="addMatiere()">Ajouter une matière</button>
+          <button class="btn btn-success mt-3" type="submit">Enregistrer le produit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

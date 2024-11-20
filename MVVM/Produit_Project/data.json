@@ -1,0 +1,48 @@
+{
+  "produits": [
+    {
+      "id": "34ec",
+      "libelle": "souris",
+      "famille": "tech",
+      "matieres": [
+        {
+          "nom": "plastique",
+          "pourcentage": 80
+        }
+      ]
+    },
+    {
+      "id": "a420",
+      "libelle": "souris",
+      "famille": "tech",
+      "matieres": [
+        {
+          "nom": "sdf",
+          "pourcentage": 20
+        }
+      ]
+    },
+    {
+      "id": "f1fb",
+      "libelle": "casque",
+      "famille": "tech",
+      "matieres": [
+        {
+          "nom": "cccc",
+          "pourcentage": 20
+        }
+      ]
+    },
+    {
+      "id": "34ec",
+      "libelle": "souris",
+      "famille": "tech",
+      "matieres": [
+        {
+          "nom": "plastique",
+          "pourcentage": 80
+        }
+      ]
+    }
+  ]
+}

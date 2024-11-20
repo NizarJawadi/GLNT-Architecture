@@ -1,0 +1,24 @@
+<div class="container">
+    <h2>Liste des Produits</h2>
+  
+    <div *ngFor="let produit of produits" class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">{{ produit.libelle }}</h5>
+        <p class="card-text">Famille: {{ produit.famille }}</p>
+  
+        <!-- Affichage des matières avec un champ scrollable -->
+        <div style="max-height: 150px; overflow-y: auto;">
+          <ul>
+            <li *ngFor="let matiere of produit.matieres">
+              {{ matiere.nom }} ({{ matiere.pourcentage }}%)
+            </li>
+          </ul>
+        </div>
+  
+        <!-- Actions : Update et Delete -->
+        <button class="btn btn-warning" (click)="updateProduit(produit.id, produit)">Update</button>
+        <button class="btn btn-danger" (click)="deleteProduit(produit.id)">Delete</button>
+      </div>
+    </div>
+  </div>
+  

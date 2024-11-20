@@ -1,0 +1,13 @@
+.container {
+    max-width: 700px;
+  }
+  
+  .card-header {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .row .btn-danger {
+    width: 100%;
+  }
+  
